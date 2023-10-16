@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "5n+py8v79BMYpEDMFSnYPGrVkv9G2bhZCC+gkBE/KuU=",
+  "Source": "ToDoList",
+  "BasePath": "_content/ToDoList",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ToDoList\\wwwroot",
+      "Source": "ToDoList",
+      "ContentRoot": "P:\\Programming\\Startups\\ToDoList\\ToDoList\\wwwroot\\",
+      "BasePath": "_content/ToDoList",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
