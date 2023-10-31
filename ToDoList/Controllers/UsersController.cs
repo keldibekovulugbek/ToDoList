@@ -24,11 +24,11 @@ namespace ToDoList.Controllers
             return Ok(user);
         }
         [HttpPost("imageUpload")]
-        public async ValueTask<IActionResult> UploadImageAync(Guid id,[FromForm] UploadImageDTO imageDTO)
+        public async ValueTask<IActionResult> UploadImageAsync(Guid id,[FromForm] UploadImageDTO imageDTO)
         {
-            await _service.UploadImageAsync(id, imageDTO);
+            var user = await _service.UploadImageAsync(id, imageDTO);
 
-            return Ok();
+            return Ok(user);
         }
 
         [HttpDelete("{userId:guid}")]

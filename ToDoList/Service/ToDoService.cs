@@ -6,11 +6,10 @@ namespace ToDoList.Service
     public class ToDoService : IToDoService
     {
         private readonly IDataContext _dataContext;
-        private readonly NotifyService _notifyService;
-        public ToDoService(IDataContext dataContext, NotifyService notifySevice)
+
+        public ToDoService(IDataContext dataContext)
         {
             _dataContext = dataContext;
-            _notifyService = notifySevice;
         }
 
         public async ValueTask<ToDo> CreateAsync(ToDo toDo, bool SaveChanges = true, CancellationToken cancellationToken = default)
@@ -35,7 +34,7 @@ namespace ToDoList.Service
         {
             var entity =  _dataContext.ToDos.FirstOrDefault(t=> t.Id==id);
 
-            _notifyService.NotifyHandler(entity);
+            
 
             return entity;
         }

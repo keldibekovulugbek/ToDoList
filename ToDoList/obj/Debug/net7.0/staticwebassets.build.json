@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5n+py8v79BMYpEDMFSnYPGrVkv9G2bhZCC+gkBE/KuU=",
+  "Hash": "5GsALBK7rWheSbCxKcv30Td6bflZQLm+RyAoAv6tYY8=",
   "Source": "ToDoList",
   "BasePath": "_content/ToDoList",
   "Mode": "Default",
@@ -10,10 +10,28 @@
     {
       "Name": "ToDoList\\wwwroot",
       "Source": "ToDoList",
-      "ContentRoot": "P:\\Programming\\Startups\\ToDoList\\ToDoList\\wwwroot\\",
+      "ContentRoot": "P:\\Programming\\Training\\Najot Ta'lim\\.NET N10\\ToDoList\\ToDoList\\wwwroot\\",
       "BasePath": "_content/ToDoList",
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "P:\\Programming\\Training\\Najot Ta'lim\\.NET N10\\ToDoList\\ToDoList\\wwwroot\\images\\5cf33736-8a41-46e6-8476-58666dd23c2d.jpg",
+      "SourceId": "ToDoList",
+      "SourceType": "Discovered",
+      "ContentRoot": "P:\\Programming\\Training\\Najot Ta'lim\\.NET N10\\ToDoList\\ToDoList\\wwwroot\\",
+      "BasePath": "_content/ToDoList",
+      "RelativePath": "images/5cf33736-8a41-46e6-8476-58666dd23c2d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\5cf33736-8a41-46e6-8476-58666dd23c2d.jpg"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 ﻿namespace ToDoList.Service
 {
-    public interface IFileService
+    public interface IFileService :IDisposable
     {
         string FolderName { get; }
 

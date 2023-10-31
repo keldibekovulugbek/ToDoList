@@ -5,16 +5,17 @@
         private readonly string _folderName = "images";
         private readonly string _basePath;
 
-       public FileService(IWebHostEnvironment webHost)
+        public FileService(IWebHostEnvironment webHost)
         {
             _basePath = webHost.WebRootPath;
+      
         }
 
         public string FolderName => _folderName;
 
-        public async ValueTask<bool> DeleteAsync(string imageName)
+        public async ValueTask<bool> DeleteAsync(string imagePath)
         {
-            var path = Path.Combine(_basePath, _folderName, imageName);
+            var path = Path.Combine(_basePath, imagePath);
 
             if (!File.Exists(path))
             {
@@ -25,6 +26,11 @@
 
             return true;
 
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
 
         public async ValueTask<string> SaveImageAsync(IFormFile image)
@@ -40,14 +46,19 @@
                 Directory.CreateDirectory(folderPath);
             }
 
-            var imageName =Path.Combine(folderPath, Guid.NewGuid().ToString() + Path.GetExtension(image.FileName));
+
+            var imageName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+
+            var imagePath =Path.Combine(folderPath, imageName);
             
-            var stream = File.Create(imageName);
+            var stream = File.Create(imagePath);
             await image.CopyToAsync(stream);
             stream.Close();
 
-            return imageName;
+            return Path.Combine(_folderName, imageName);
             
         }
+
+
     }
 }

@@ -1,81 +1,71 @@
-﻿using ToDoList.Data;
+﻿using ToDoList.Brokers;
+using ToDoList.Data;
 using ToDoList.Entities;
 
 namespace ToDoList.Service
 {
     public class UserService : IUserService
     {
-        private readonly IDataContext _dataContext;
+        private readonly IGenericBroker<User> _broker;
         private readonly IFileService _fileService;
 
-        public UserService(IDataContext dataContext, IFileService fileService)
+        public UserService(IGenericBroker<User> broker, IFileService fileService)
         {
-            _dataContext = dataContext;
+            _broker = broker;
             _fileService = fileService;
         }
 
         public bool IsExist(User user)
         {
-            var existUser = _dataContext.Users.FirstOrDefault(u => u.Email.Equals(user.Email));
-
-            if (existUser == null) return false;
+            var existUser = _broker.Get().Result.FirstOrDefault(x => x.Email.Equals(user.Email));
            
+            if (existUser is null)
+                return false;
+
             return true;
         }
 
         public async ValueTask<User> CreateAsync(User user, bool SaveChanges = true, CancellationToken cancellationToken = default)
-        {
+        {   
             if (IsExist(user))
                 throw new Exception("This user is exist");
 
-            var entity = await _dataContext.Users.AddAsync(user);
+            var entity = await _broker.CreateAsync(user);
 
-            await _dataContext.SaveChangesAsync();
-
-            return entity.Entity;
+            return entity;
         }
 
-        public async ValueTask<User> DeleteAsync(Guid id, bool SaveChanges = true, CancellationToken cancellationToken = default)
+        public async ValueTask<bool> DeleteAsync(Guid id, bool SaveChanges = true, CancellationToken cancellationToken = default)
         {
-            var user = await _dataContext.Users.FindAsync(id, cancellationToken);
+            var user = await _broker.GetByIdAsync(id);
 
-            if (user == null) throw new Exception();
-
-            await _dataContext.Users.RemoveAsync(user);
-            await _dataContext.SaveChangesAsync();
-
-            return user;
+           return await _broker.DeleteAsync(user);
         }
 
-        public ValueTask<ICollection<User>> Get(CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
+        public async ValueTask<IEnumerable<User>> Get(CancellationToken cancellationToken = default)
+            => _broker.Get().Result.AsEnumerable<User>();
+
 
         public ValueTask<User> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
+            => _broker.GetByIdAsync(id);
 
-        public ValueTask<User> UpdateAsync(Guid id, User user, bool SaveChanges = true, CancellationToken cancellationToken = default)
+        public async ValueTask<User> UpdateAsync(Guid id, User user, bool SaveChanges = true, CancellationToken cancellationToken = default)
         {
-            throw new NotImplementedException();
+            var model = await _broker.UpdateAsync(user);
+
+            return model;
         }
 
         public async ValueTask<User> UploadImageAsync(Guid id, UploadImageDTO imageDTO, bool SaveChanges = true, CancellationToken cancellationToken = default)
         {
-            var user = await _dataContext.Users.FindAsync(id, cancellationToken);
-           
-            if(user == null) throw new Exception();
+            var user = await _broker.GetByIdAsync(id);
 
-            if (user.ImagePath is not null)
-            {
-                await _fileService.DeleteAsync(user.ImagePath);
-            }
+            await _fileService.DeleteAsync(user.ImagePath);
 
             user.ImagePath = await _fileService.SaveImageAsync(imageDTO.Image);
-            await _dataContext.SaveChangesAsync();
 
+            await _broker.UpdateAsync(user);
+            
             return user;
         }
     }

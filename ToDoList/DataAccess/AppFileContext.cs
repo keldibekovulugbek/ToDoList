@@ -1,11 +1,11 @@
-﻿using FileBaseContext.Abstractions.Common;
-using FileBaseContext.Abstractions.Models.Entity;
+﻿using FileBaseContext.Abstractions.Models.Entity;
 using FileBaseContext.Abstractions.Models.FileContext;
 using FileBaseContext.Abstractions.Models.FileEntry;
 using FileBaseContext.Abstractions.Models.FileSet;
 using FileBaseContext.Context.Models.Configurations;
 using FileBaseContext.Context.Models.FileContext;
 using ToDoList.Entities;
+using ToDoList.Entities.Common;
 
 namespace ToDoList.Data
 {

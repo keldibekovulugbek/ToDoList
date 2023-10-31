@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AKF0Zet7GtfEzjCPN+7of78RJu+z+ILjbL4X7aERLE/JuS3Hqirl8K8BRpaW7IrfgsjMJ1fF0vlY0ocbyq0f2Q==",
+  "dgSpecHash": "ikSEr1ghWxKATZ2grpFR20m6I6pOd7RODYdjzjoxpENFEEnzyWtvypTl7CTprcIIdhhnHD0RukHzzh5DHR6HgA==",
   "success": true,
-  "projectFilePath": "P:\\Programming\\Startups\\ToDoList\\ToDoList\\ToDoList.csproj",
+  "projectFilePath": "P:\\Programming\\Training\\Najot Ta'lim\\.NET N10\\ToDoList\\ToDoList\\ToDoList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\keldi\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\keldi\\.nuget\\packages\\max.filebasecontext.abstractions\\0.0.4\\max.filebasecontext.abstractions.0.0.4.nupkg.sha512",

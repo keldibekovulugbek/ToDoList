@@ -5,7 +5,7 @@ namespace ToDoList.Data
 {
     public interface IDataContext
     {
-        IFileSet<User, Guid> Users { get; }
+        public IFileSet<User, Guid> Users { get; }
 
         public IFileSet<ToDo, Guid> ToDos { get; }
 

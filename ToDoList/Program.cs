@@ -1,7 +1,8 @@
 using FileBaseContext.Abstractions.Models.FileContext;
 using FileBaseContext.Context.Models.Configurations;
+using ToDoList.Brokers;
 using ToDoList.Data;
-using ToDoList.Events;
+using ToDoList.Entities;
 using ToDoList.Service;
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +25,11 @@ builder.Services.AddScoped<IDataContext, AppFileContext>(_ =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IGenericBroker<User>, GenericBroker<User>>();
+builder.Services.AddScoped<IGenericBroker<ToDo>, GenericBroker<ToDo>>();
 builder.Services.AddScoped<IToDoService, ToDoService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IFileService, FileService>();
-
-builder.Services.AddSingleton<ToDoEventStore>();
-builder.Services.AddSingleton<NotifyService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
