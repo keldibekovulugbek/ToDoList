@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ToDoList.Entities;
 using ToDoList.Service;
@@ -16,7 +17,7 @@ namespace ToDoList.Controllers
             _toDoService = toDoService;
         }
 
-        [HttpPost]
+        [HttpPost, Authorize()]
         public async ValueTask<IActionResult> CreateAsync(ToDo @toDo) 
         {
             await _toDoService.CreateAsync(toDo);

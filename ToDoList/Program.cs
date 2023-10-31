@@ -1,6 +1,7 @@
 using FileBaseContext.Abstractions.Models.FileContext;
 using FileBaseContext.Context.Models.Configurations;
 using ToDoList.Brokers;
+using ToDoList.Configurations;
 using ToDoList.Data;
 using ToDoList.Entities;
 using ToDoList.Service;
@@ -21,6 +22,11 @@ builder.Services.AddScoped<IDataContext, AppFileContext>(_ =>
     context.FetchAsync().AsTask().Wait();
     return context;
 });
+
+builder.Services.ConfigureCorsPolicy();
+builder.Services.AddHttpContextAccessor();
+builder.ConfigureJwt();
+builder.Services.ConfigureSwaggerAuthorize();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

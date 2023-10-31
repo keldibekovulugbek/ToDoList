@@ -78,3 +78,10 @@ P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\obj\Debug\net7.0
 P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\obj\Debug\net7.0\ToDoList.pdb
 P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\obj\Debug\net7.0\ToDoList.genruntimeconfig.cache
 P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\obj\Debug\net7.0\ref\ToDoList.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+P:\Programming\Training\Najot Ta'lim\.NET N10\ToDoList\ToDoList\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
